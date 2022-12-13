@@ -44,7 +44,13 @@
    }
 
    .lang {
-      &:not(:last-child) {margin-bottom: rem(20);}      
+      &:not(:last-child) {margin-bottom: rem(40);}
+      .lang-item.current-lang {
+         color: var(--clr-blue);
+         &::after {
+            border-color: var(--clr-blue);
+         }
+      }
       @media(min-width: $tablet) {
          display: none;
          &:not(:last-child) {
@@ -53,6 +59,15 @@
       }
       @media(min-width: em(1169.98)) {
          display: block;
+      }
+   }
+
+   &--home.header .lang .lang-item.current-lang{
+      @media(min-width: em(1169.98)) {
+         color: var(--clr-white);
+         &::after {
+            border-color: var(--clr-white);
+         }
       }
    }
 

@@ -1,7 +1,11 @@
 .publication {
    padding: rem(40) 0;
+   margin-bottom: rem(60);
    @media(min-width: $mobileNormal) {
       padding: rem(60) 0;
+   }
+   @media(min-width: $tablet) {
+      margin-bottom: rem(120);
    }
    background-color: var(--clr-superlight-blue);
    .publication__container {
@@ -14,6 +18,12 @@
          margin-bottom: rem(30);
          @media(min-width: $tablet) {
             margin-bottom: rem(60);
+         }
+      }
+      .fl-r {
+         justify-content: center;
+         @media(min-width: $mobileSmall) {
+            justify-content: flex-end;
          }
       }
    }
@@ -54,12 +64,23 @@
    }
 }
 .publication-card {
-   margin-bottom: rem(30);
    display: flex;
-   align-items: flex-start;
+   flex-direction: column-reverse;
+   margin-bottom: rem(30);
    img {
-      flex: 0 0 rem(360);
-      margin-left: rem(40);
+      flex: 0 0 rem(240);
+      object-fit: cover;
+      margin-bottom: rem(20);
+      @media(min-width: $mobileSmall) {
+         margin-bottom: rem(30);
+      }
+      @media(min-width: $mobileNormal) {
+         flex: 0 0 rem(360);
+      }
+      @media(min-width: $mobile) {
+         margin-left: rem(40);
+         margin-bottom: 0;
+      }
    }
    h3 {
       @include dp-500-24;
@@ -68,14 +89,28 @@
    p {
       @include bd-400-18;
       &:not(:first-child) {
-         margin-top: rem(30);
+         margin-top: rem(15);
+      }
+      @media(min-width: $mobile) {
+         &:not(:first-child) {
+            margin-top: rem(30);
+         }
       }
    }
    a {
       display: inline-flex;
       background-color: transparent;
       &:not(:first-child) {
-         margin-top: rem(40);
+         margin-top: rem(20);
       }
+      @media(min-width: $mobile) {
+         &:not(:first-child) {
+            margin-top: rem(40);
+         }
+      }
+   }
+   @media(min-width: $mobile) {
+      align-items: flex-start;
+      flex-direction: row;
    }
 }

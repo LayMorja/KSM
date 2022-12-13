@@ -1,6 +1,8 @@
 .lang {
+   position: relative;
+   z-index: 40;
    align-self: center;
-   height: rem(28);
+   height: rem(30);
    .lang-item {
       cursor: pointer;
       display: flex;
@@ -16,11 +18,15 @@
       padding: rem(5) rem(10);
       font: inherit;
       color: inherit;
-      transition: all 0.32s ease-in-out;
+      transition: all 0.2s ease-in-out;
       margin: 0;
    }
    .lang-item:not(.current-lang) a {
       color: var(--clr-black);
+      &:active {
+         background-color: var(--clr-blue);
+         color: var(--clr-white);
+      }
    }
    .lang-item.current-lang::after {
       cursor: pointer;
