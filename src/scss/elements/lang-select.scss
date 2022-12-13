@@ -1,0 +1,67 @@
+.lang {
+   align-self: center;
+   height: rem(28);
+   .lang-item {
+      cursor: pointer;
+      display: flex;
+      align-items: center;   
+      font-family: var(--ff-sec);
+      font-weight: 300;
+      font-size: rem(16);
+      line-height: 1.25;
+      color: var(--clr-white);   
+   }   
+   .lang-item a {
+      display: block;
+      padding: rem(5) rem(10);
+      font: inherit;
+      color: inherit;
+      transition: all 0.32s ease-in-out;
+      margin: 0;
+   }
+   .lang-item:not(.current-lang) a {
+      color: var(--clr-black);
+   }
+   .lang-item.current-lang::after {
+      cursor: pointer;
+      content: '';
+      flex: 0 0 rem(7.5);
+      width: rem(7.5);
+      height: rem(7.5);
+      transform: rotate(45deg) translateY(rem(-2));
+      border-right: 1px solid var(--clr-white);
+      border-bottom: 1px solid var(--clr-white);
+      transition: all 0.32s ease-in-out;
+   }
+   .lang-item.current-lang:hover {
+      color: var(--clr-blue); 
+      &::after {
+         border-color: var(--clr-blue);
+      }
+   }
+   .lang-item:not(.current-lang) {
+      color: var(--clr-black);
+      background-color: var(--clr-white);
+      display: none;
+   }
+   &.open .lang-item:not(.current-lang) {
+      display: block;
+   }
+   &.open .current-lang {
+      color: var(--clr-blue);
+      &::after {
+         border-color: var(--clr-blue);
+      }
+   }
+   &.open .lang-item:not(.current-lang):hover {
+      background-color: var(--clr-superlight-blue);
+   }
+   &--dark.lang {
+      .lang-item.current-lang {
+         color: var(--clr-blue);
+         &::after {
+            border-color: var(--clr-blue);
+         }
+      }
+   }
+}

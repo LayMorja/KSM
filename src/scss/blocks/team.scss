@@ -1,0 +1,63 @@
+.team {
+   margin-bottom: rem(60);
+   @media(min-width: $tablet) {
+      margin-bottom: rem(120);
+   }
+   .team__container {
+      h2 {
+         max-width: rem(560);
+         margin: 0 auto;
+         @include dp-600-32;
+         color: var(--clr-blue-gray);
+         text-align: center;
+         margin-bottom: rem(30);
+         @media(min-width: $tablet) {
+            margin-bottom: rem(60);
+         }
+      }
+      .team-card {
+         @media(min-width: $mobileMedium) {
+            width: 47%;
+            &:not(:nth-child(2n)) {
+               margin-right: 3%;
+            }
+         }
+         @media(min-width: $tablet) {
+            width: 31%;
+            &:not(:nth-child(2n)) {
+               margin-right: 0;
+            }
+            &:not(:nth-child(3n)) {
+               margin-right: 3.5%;
+            }
+         }
+         margin-bottom: rem(40);
+      }
+   }
+}
+.team-card {   
+   div {
+      padding-bottom: percent(400, 360);
+      margin-bottom: rem(8);
+   }
+   h3 {
+      @include bd-500-18;
+      color: var(--clr-blue);
+      &:not(:last-child) {margin-bottom: rem(5);}
+   }
+   span {
+      display: block;
+      @include bd-400-14;
+      &:not(:last-child) {margin-bottom: rem(5);}
+   }
+   a {
+      @include bd-400-18;
+      color: var(--clr-blue);
+   }
+   p a {
+      color: var(--clr-dark-gray);
+   }
+   @media(min-width: $mobile) {
+      text-align: left;
+   }
+}

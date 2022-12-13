@@ -1,0 +1,54 @@
+.description {
+   margin-bottom: rem(60);
+   @media(min-width: $tablet) {
+      margin-bottom: rem(120);
+   }
+   .description__container {
+      ul li:not(:last-child) {
+         margin-bottom: rem(30);
+         @media(min-width: $mobile) {
+            margin-bottom: rem(60);
+         }
+         @media(min-width: $tablet) {
+            margin-bottom: rem(80);
+         }
+      }
+      ul li {
+         @media(min-width: $mobileSmall) {
+            display: flex;
+            align-items: flex-start;
+         }
+      }
+      ul li h2 {
+         @include dp-400-30;
+         color: var(--clr-blue);
+         flex: 0 0 43%;
+         margin-bottom: rem(10);
+         @media(min-width: $mobileSmall) {
+            margin-right: rem(20);
+            margin-bottom: 0;
+         }
+      }
+      ul li p {
+         @include bd-400-18;
+         &:not(:last-child) {margin-bottom: rem(20);}
+         @media(min-width: $mobile) {
+            &:not(:last-child) {margin-bottom: rem(40);}
+         }
+      }
+      ul li a {
+         white-space: nowrap;
+         margin-top: rem(20);
+         @media(min-width: $mobileSmall) {
+            display: inline-flex;
+         }
+      }
+      ul li a svg {
+         display: block;
+         margin-right: rem(5);
+         flex: 0 0 rem(20);
+         height: rem(20);
+         object-fit: contain;
+      }
+   }
+}

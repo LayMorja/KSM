@@ -1,0 +1,162 @@
+.purchase-form {
+   h3 {
+      font-family: var(--ff-sec);
+      font-weight: 500;
+      font-size: rem(16);
+      line-height: 140%;
+      letter-spacing: 0.02em;
+      color: var(--clr-blue-gray);
+      &:not(:last-child) {margin-bottom: rem(10);}
+      &:not(:first-child) {
+         margin-top: rem(40);
+      }
+      @media(min-width: $mobileSmall) {
+         font-size: rem(18);
+      }
+      @media(min-width: $mobileNormal) {
+         font-size: rem(20);
+         &:not(:last-child) {margin-bottom: rem(20);}
+      }
+   }
+   .purchase-form__body {
+      display: grid;
+      column-gap: rem(20);
+      row-gap: rem(18);
+      @media(min-width: $mobileNormal) {
+         grid-template-columns: repeat(2, 1fr);
+         .response-form__item:last-child {
+            grid-column: span 2;
+         }
+      }
+      div {
+         position: relative;         
+         .close-button {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: rem(24);
+            height: rem(24);
+            border-radius: 50%;
+            top: rem(8);
+            right: rem(10);
+            background-color: var(--clr-white);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.32s ease-in-out;
+            svg {
+               display: block;
+               width: rem(12);
+               height: rem(12);
+            }
+            &.shown {
+               opacity: 1;
+               pointer-events: all;
+            }
+         }
+      }
+   }
+   .purchase-form__activities {
+      margin-top: rem(35);
+      position: relative;
+      input[type="file"] {
+         position: absolute;
+         pointer-events: none;
+         top: -200px;
+         opacity: 0;
+      }
+      label {
+         cursor: pointer;
+         display: flex;
+         align-items: center;
+         font-family: var(--ff-main);
+         font-weight: 500;
+         font-size: rem(14);
+         line-height: 1.375;
+         color: var(--clr-light-blue);
+         transition: all 0.32s ease-in-out;
+         @media(min-width: $mobile) {
+            font-size: rem(16);
+         }
+         @media(any-hover: hover) {
+            &:hover {
+               color: var(--clr-blue);
+            }
+         }
+         img {
+            display: block;
+            flex: 0 0 rem(20);
+            width: rem(20);
+            height: rem(20);
+            margin-right: rem(5);
+         }
+      }
+      button {
+         width: 100%;
+         margin-top: rem(20);
+      }
+      @media(min-width: $mobileMedium) {
+         margin-top: rem(55);
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         button {
+            width: auto;
+            margin-top: 0;
+         }
+      }
+   }
+
+   input,
+   textarea {
+      display: block;
+      width: 100%;
+      height: rem(40);
+      padding: 0 rem(10);
+      background-color: transparent;
+      border: 1px solid var(--clr-light-gray);
+      font-family: var(--ff-main);
+      font-size: rem(14);
+      line-height: 1.875;
+      letter-spacing: 0.02em;
+      color: var(--clr-black);
+      resize: none;
+      &::placeholder {
+         color: var(--clr-dark-gray);
+      }
+      transition: all 0.32s ease-in-out;
+      @media(any-hover: hover) {
+         &:hover {
+            box-shadow: 3px 3px 6px rgba(10, 69, 157, 0.1);
+         }
+      }
+      &:focus {
+         outline: none;
+         box-shadow: 3px 3px 6px rgba(10, 69, 157, 0.1);
+         border-color: var(--clr-blue);
+      }
+      &.filled {
+         background-color: var(--clr-superlight-blue);
+         border-color: transparent;
+      }
+      @media(min-width: $mobileNormal) {
+         font-size: rem(16);
+      }
+   }
+   textarea {
+      height: rem(140);
+      margin-top: rem(12);
+      padding: rem(5) rem(10);
+   }
+   input.just-validate-error-field {
+      background-color: var(--clr-superlight-blue);
+      border-color: transparent;
+   }
+   .just-validate-error-label {
+      margin-top: rem(5);
+      font-size: rem(12);
+      line-height: 140%;
+      letter-spacing: 0.02em;
+      color: #D60A0A;         
+   }
+}

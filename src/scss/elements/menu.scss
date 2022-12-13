@@ -1,0 +1,199 @@
+.menu {
+   position: fixed;
+   z-index: 99999;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: rem(40) 0 rem(60);
+   background-color: var(--clr-white);
+   transform: translateX(100%);
+   opacity: 0;
+   pointer-events: none;
+   overflow-y: auto;
+   transition: all 0.32s ease-in-out;
+   .menu-open & {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: all;
+   }
+
+   @media(min-width: $tablet) {
+      position: static;
+      flex-direction: row;
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: all;
+      padding: 0;
+      background-color: transparent;
+      flex-direction: row;
+      align-items: center;
+      overflow-y: initial;     
+   }
+
+   .menu__body {
+      &:not(:last-child) {margin-bottom: rem(20);}
+      @media(min-width: $tablet) {
+         &:not(:last-child) {
+            margin-right: rem(20);
+            margin-bottom: 0;
+         }  
+      }
+   }
+
+   .menu__body > ul {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      @media(min-width: $tablet) {
+         flex-direction: row;
+         align-items: center;
+         flex-wrap: wrap;
+      }
+   }
+
+   .menu__body > ul > li {
+      position: relative;
+      @media(any-hover: hover) {
+         &:hover {
+            > ul {
+               visibility: visible;
+               pointer-events: all;
+               opacity: 1;
+               transform: translateY(0);
+            }
+         }
+      }
+   }
+
+   .menu__body > ul > li ul {
+      @media(min-width: $tablet) {
+         position: absolute;
+         top: 100%;
+         left: 0;
+         min-width: rem(180);
+         background-color: var(--clr-white);
+         box-shadow: var(--bsh-card);
+         visibility: hidden;
+         pointer-events: none;
+         opacity: 0;
+         transform: translateY(rem(20));
+         transition: all 0.32s ease-in-out;
+         border-top: 2px solid var(--clr-blue);
+         box-shadow: 4px 5px 30px rgba(8, 31, 90, 0.12);
+      }
+   }
+
+   .menu__body > ul > li ul li a {
+      display: block;
+      padding: rem(10) rem(20);
+      text-align: center;
+      font-size: rem(14);
+      line-height: 1.35;
+      letter-spacing: 0.02em;
+      transition: all 0.32s ease-in-out;
+      @media(min-width: $tablet) {
+         text-align: left;
+         @media(any-hover: hover) {
+            &:hover {
+               background-color: var(--clr-superlight-blue);
+            }
+         }
+         &:focus,
+         &:active {
+            outline: none;
+            background-color: var(--clr-blue);
+            color: var(--clr-white);
+         }
+      }
+   }
+
+   .menu__body > ul > li > a {
+      display: block;
+      padding: rem(10);
+      font-weight: 600;
+      font-size: rem(20);
+      line-height: 140%;
+      text-align: center;
+      color: var(--clr-blue);
+      transition: all 0.32s ease-in-out;
+      @media(min-width: $tablet) {
+         padding: rem(20);
+         font-size: rem(16);
+         color: var(--clr-white);
+         &:focus {
+            outline: none;
+            background-color: var(--clr-blue);
+         }
+      }
+      @media(any-hover: hover) and (min-width: $tablet) {
+         &:hover {
+            background-color: var(--clr-blue);
+         }
+      }
+   }
+}
+.icon-menu {   
+   display: block;
+   position: relative;
+   width: rem(16);
+   height: rem(12);
+   cursor: pointer;
+   z-index: 999995;
+   span,
+   &::before,
+   &::after {
+      content: "";
+      transition: all 0.3s ease-in-out 0s;
+      right: 0;
+      position: absolute;
+      height: rem(2);
+      border-radius: rem(10);
+      background-color: var(--clr-white);
+   }
+   &::before {
+      top: 0;
+      width: 60%;
+   }
+   &::after {
+      bottom: 0;
+      right: auto;
+      left: 0;
+      width: 60%;
+   }
+   span {
+      top: calc(50% - rem(1));
+      width: 100%;
+   }
+   .menu-open & {
+      span {
+         width: 0;
+      }
+      &::before,
+      &::after {
+         width: 100%;
+         background-color: var(--clr-blue);
+      }
+      &::before {
+         top: calc(50% - rem(1));
+         transform: rotate(-45deg);
+      }
+      &::after {
+         bottom: calc(50% - rem(1));
+         transform: rotate(45deg);
+      }
+   }
+	@media (min-width: $tablet) {
+      display: none;
+	}
+   .header--background & {
+      span,
+      &::before,
+      &::after {
+         background-color: var(--clr-blue);
+      }
+   }
+}

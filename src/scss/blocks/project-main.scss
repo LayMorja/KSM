@@ -1,0 +1,63 @@
+.project-main {
+   margin-bottom: rem(60);
+   @media(min-width: $tablet) {
+      margin-bottom: rem(120);
+   }
+   .project-main__container {
+      position: relative;
+      h1 {
+         max-width: rem(660);
+         @include dp-500-24;
+         color: var(--clr-blue);
+         &:not(:last-child) {margin-bottom: rem(20);}
+      }
+      p {
+         max-width: rem(660);
+         @include bd-500-18;
+         &:not(:last-child) {margin-bottom: rem(30);}
+      }
+   }
+
+   .project-main__slider {
+   }
+
+   .project-main__wrapper {
+   }
+
+   .project-main__slide {
+      img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+   }
+
+   .project-main__button-prev {
+      top: 55%;
+      svg {
+         transform: rotate(-180deg);
+      }
+      left: rem(24);
+      @media(min-width: $pc) {
+         left: rem(-8);
+      }
+   }
+
+   .project-main__button-next {
+      top: 55%;
+      right: rem(24);
+      @media(min-width: $pc) {
+         right: rem(-8);
+      }
+   }
+
+   .project-main__activities {
+      margin-top: rem(30);
+      @media(min-width: $tablet) {
+         margin-top: rem(40);
+      }
+   }
+
+   .project-main__pagination {
+   }
+}

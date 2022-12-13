@@ -1,0 +1,19 @@
+// Подключение общих CSS-переменных
+:root {
+   --clr-white: #fff;
+   --clr-light-gray: #d9dadd;
+   --clr-dark-gray: #5e6167;
+   --clr-blue-gray: #8696a5;
+   --clr-superlight-gray: #fafafa;
+   --clr-superlight-blue: #f4f7ff;
+   --clr-black: #03050f;
+   --clr-orange: #e5680d;
+   --clr-blue: #002a99;
+   --clr-light-blue: #8095cd;
+   --clr-almost-dark: #06154a;
+
+   --bsh-card: 4px 5px 30px rgba(8, 31, 90, 0.12);
+
+   --ff-sec: 'Montserrat', 'OpenSans', sans-serif;
+   --ff-main: 'OpenSans', 'Montserrat', sans-serif;
+}

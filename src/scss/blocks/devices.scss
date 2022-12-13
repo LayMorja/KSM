@@ -1,0 +1,35 @@
+.devices {
+   margin-bottom: rem(60);
+   @media(min-width: $tablet) {
+      margin-bottom: rem(90);
+   }
+   @media(min-width: $pc) {
+      margin-bottom: rem(120);
+   }
+   .devices__container {
+      display: grid;
+      gap: rem(40);
+      @media(min-width: $mobileNormal) {
+         grid-template-columns: repeat(2, minmax(rem(290), 1fr));
+      }
+      @media(min-width: $tablet) {
+         gap: rem(40);
+         grid-template-columns: repeat(3, minmax(rem(290), 1fr));
+      }
+   }
+}
+.item-devices {
+   h4 {
+      @include dp-500-18;
+      color: var(--clr-blue);
+      margin: rem(10) 0 rem(5);
+      font-size: rem(16);
+   }
+   p {
+      @include bd-400-14;
+      margin-top: rem(5);
+   }
+   &__image-ibg {
+      padding-bottom: percent(400, 360);
+   }
+}

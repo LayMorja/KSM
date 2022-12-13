@@ -1,0 +1,136 @@
+.vacancies {
+
+   .vacancies__container {
+      h2 {
+         @include dp-600-32;
+         color: var(--clr-blue-gray);
+         margin-bottom: rem(30);
+         text-align: center;
+         @media(min-width: $tablet) {
+            margin-bottom: rem(60);
+         }
+      }
+      > p {
+         max-width: rem(600);
+         margin-top: rem(20);
+         font-family: var(--ff-main);
+         font-weight: 400;
+         font-size: rem(14);
+         line-height: 1.6;
+         color: var(--clr-dark-gray);
+         @media(min-width: $mobileNormal) {
+            margin-top: rem(30);
+         }
+         @media(min-width: $mobile) {
+            margin-top: rem(40);
+         }
+         @media(min-width: $tablet) {
+            font-size: rem(16);
+            line-height: 180%;
+         }
+      }
+      > button {
+         margin-top: rem(20);
+         font-family: var(--ff-main);
+         font-weight: 400;
+         font-size: rem(16);
+         color: var(--clr-blue);
+         @media(min-width: $tablet) {
+            font-size: rem(18);
+            line-height: 180%;
+         }
+      }
+   }
+}
+.spollers-item {
+   &:not(:last-child) {margin-bottom: rem(20);}
+   > button {
+      width: 100%;
+      text-align: left;
+      padding: rem(15) rem(20);
+      box-shadow: 4px 5px 30px rgba(8, 31, 90, 0.12);
+      font-family: var(--ff-sec);
+      font-weight: 500;
+      font-size: rem(16);
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+      color: var(--clr-blue);
+      transition: all 0.32s ease-in-out;
+      border-bottom: 1px solid transparent;
+      &._spoller-active {
+         border-color: var(--clr-light-gray);
+         background-color: var(--clr-superlight-blue);
+         box-shadow: none;
+      }
+      @media(min-width: $mobileNormal) {
+         font-size: rem(18);
+      }
+      @media(min-width: $tablet) {
+         font-size:  rem(20);
+         line-height: 180%;
+      }
+      @media(any-hover: hover) {
+         &:hover {
+            background-color: var(--clr-superlight-blue);
+         }
+      }
+      &:focus {
+         background-color: var(--clr-superlight-blue);
+      }
+   }
+   > div {
+      padding: rem(20) rem(20) rem(30);
+      background-color: var(--clr-superlight-blue);
+   }
+   div:not(.spoller-body) button {
+      width: 100%;
+      @media(min-width: $mobileMedium) {
+         width: auto;
+      }
+   }
+   .spoller-body {
+      display: grid;
+      margin-bottom: rem(30);
+      gap: rem(30);
+      @media(min-width: $mobile) {
+         grid-template-columns: repeat(3, 1fr);
+      }
+      @media(min-width: $pc) {
+         gap: rem(50);
+      }
+   }
+   .spoller-body h4 {
+      font-family: var(--ff-sec);
+      font-style: normal;
+      font-weight: 500;
+      font-size: rem(14);
+      line-height: 140%;
+      letter-spacing: 0.02em;
+      color: var(--clr-blue-gray);
+      &:not(:last-child) {margin-bottom: rem(10);}
+      @media(min-width: $mobileNormal) {
+         font-size: rem(16);
+         &:not(:last-child) {margin-bottom: rem(20);}
+      }
+      @media(min-width: $tablet) {
+         font-size: rem(18);
+      }
+   }
+   .spoller-body ul li {
+      list-style: disc;
+      font-family: var(--ff-main);
+      font-weight: 400;
+      font-size: rem(14);
+      line-height: 180%;
+      color: var(--clr-black);      
+   }
+   .spoller-body ul {
+      padding-left: rem(15);
+   }
+   @media(min-width: $mobile) {
+      &:not(:last-child) {margin-bottom: rem(30);}
+   }
+   @media(min-width: $tablet) {
+      &:not(:last-child) {margin-bottom: rem(40);}
+   }
+}

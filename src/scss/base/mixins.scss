@@ -1,0 +1,344 @@
+//Подключение шрифта
+@mixin font($font_name, $file_name, $weight, $style) {
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src: url("../fonts/#{$file_name}.woff2") format("woff2"), url("../fonts/#{$file_name}.woff") format("woff");
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
+
+//Percent
+@function percent($px, $from) {
+	$result: math.div($px, $from) * 100%;
+	@return $result;
+}
+
+//REM
+@function rem($px) {
+	$result: math.div($px, 16) + rem;
+	@return $result;
+}
+
+//EM
+@function em($px, $current: 16) {
+	$result: math.div($px, $current) + em;
+	@return $result;
+}
+
+//Currency
+@mixin currency($sym) {
+	&::after {
+		content: "#{$sym}";
+	}
+}
+
+// Grids
+@mixin gridCards($type: fit, $min: 280px, $max: 1fr, $gap: 30px) {
+	display: grid;
+	gap: $gap;
+	grid-template-columns: repeat(auto-#{$type}, minmax($min, $max));
+}
+
+// Адаптивное свойство (clamp)
+@mixin adaptiveValue($property, $startSize, $minSize, $widthFrom: $containerWidth, $widthTo: $minWidth, $keepSize: 0) {
+	// Для calc();
+	$addSize: math.div($startSize - $minSize, 16);
+
+	@if ($widthFrom == $containerWidth and $maxWidthContainer == 0) {
+		$widthFrom: $maxWidth;
+	}
+
+	// Брейк-поинты в EM
+	$widthFromMedia: em($widthFrom);
+	$widthToMedia: em($widthTo);
+
+	// Формула плавающего значения
+	// Источник: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+	$slope: math.div(($startSize - $minSize), ($widthFrom - $widthTo));
+	$yIntersection: -$widthTo * $slope + $minSize;
+	$flyValue: #{rem($yIntersection)}" + " #{$slope * 100}vw;
+
+	// Получение значения свойства
+	$propertyValue: #{"clamp(" rem($minSize) "," $flyValue "," rem($startSize) ")"};
+	// Если отрицательные значения
+	@if ($minSize > $startSize) {
+		$propertyValue: #{"clamp(" rem($startSize) "," $flyValue "," rem($minSize) ")"};
+	}
+
+	// Если поддерживается clamp();
+	@supports (#{$property}: $propertyValue) {
+		#{$property}: $propertyValue;
+	}
+	// Если не поддерживается clamp();
+	@supports not (#{$property}: $propertyValue) {
+		#{$property}: calc(#{rem($minSize)} + #{$addSize} * (100vw - #{rem($widthTo)}) / #{math.div($widthFrom, 16) - math.div($widthTo, 16)});
+	}
+
+	// Устанавливаем значения по умолчанию
+	@if $widthFrom != $containerWidth and $widthFrom != $maxWidth and $keepSize != 1 and $keepSize != 2 {
+		@media (min-width: $widthFromMedia) {
+			#{$property}: inherit;
+		}
+	}
+	@if $widthTo != $minWidth and $keepSize != 1 and $keepSize != 3 {
+		@media (max-width: $widthToMedia) {
+			#{$property}: inherit;
+		}
+	}
+}
+
+// Флекс всё по центру
+@mixin flex-all-center {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+// Флекс всё старту
+@mixin flex-all-start {
+   display: flex;
+   align-items: flex-start;
+   justify-content: flex-start;
+}
+
+// Флекс колонка по началу
+@mixin flex-column-start {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+}
+
+@mixin way-title-400-12 {
+   font-family: var(--clr-main);
+   font-size: rem(12);
+   line-height: 1.33;
+   letter-spacing: 0.02em;
+   color: var(--clr-black);
+}
+
+@mixin dp-400-18 {
+   font-family: var(--ff-sec);
+   line-height: 160%;
+   font-size: rem(14);
+   letter-spacing: 0.02em;
+   @media(min-width: $mobileNormal) {
+      font-size: rem(16);
+   }
+   @media(min-width: $pc) {
+      font-size: rem(18);
+   }
+}
+
+@mixin dp-400-30 { 
+   font-family: var(--ff-sec);
+   line-height: 140%;
+   letter-spacing: 0.02em;
+   text-transform: uppercase;
+   font-size: rem(20);
+   letter-spacing: 0.02em;
+   @media(min-width: $mobileNormal) {
+      font-size: rem(24);
+   }
+   @media(min-width: $pc) {
+      font-size: rem(30);
+   }
+}
+
+@mixin dp-300-32 {
+   font-family: var(--ff-sec);
+   font-weight: 300;
+   line-height: 180%;
+   color: var(--clr-blue);
+   font-size: rem(20);
+   @media(min-width: $tablet) {
+      font-size: rem(24);
+   }
+   @media(min-width: em(1069.98)) {
+      font-size: rem(28)
+   }
+   @media(min-width: $pc) {
+      font-size: rem(32);
+   }
+}
+
+@mixin dp-500-16 {
+   font-family: var(--ff-sec);
+   font-weight: 500;
+   font-size: rem(14);
+   line-height: 160%;
+   color: var(--clr-black);
+   @media(min-width: $mobileNormal) {
+      font-size: rem(16);
+   }
+}
+
+@mixin dp-500-30 {
+   font-family: var(--ff-sec);
+   font-weight: 500;
+   line-height: 160%;
+   font-size: rem(20);
+   letter-spacing: 0.02em;
+   @media(min-width: $mobileNormal) {
+      font-size: rem(24);
+   }
+   @media(min-width: $pc) {
+      font-size: rem(30);
+      line-height: 180%;
+   }
+}
+
+@mixin dp-500-18 {
+   font-family: var(--ff-sec);
+   font-weight: 500;
+   line-height: 160%;
+   font-size: rem(14);
+   letter-spacing: 0.02em;
+   @media(min-width: $mobileNormal) {
+      font-size: rem(16);
+   }
+   @media(min-width: $tablet) {
+      font-size: rem(18);
+   }
+}
+
+@mixin dp-500-40 {
+   font-family: var(--ff-sec);
+   font-weight: 500;
+   line-height: 140%;
+   letter-spacing: 0.02em;
+   @media(min-width: $pc) {
+      font-size: rem(40);
+   }
+}
+
+@mixin dp-600-32 {
+   font-family: var(--ff-sec);
+   font-weight: 600;
+   line-height: 1.4;
+   letter-spacing: 0.02em;
+   color: var(--clr-blue);
+   font-size: rem(20);
+   @media(min-width: $tablet) {
+      font-size: rem(24);
+   }
+   @media(min-width: em(1069.98)) {
+      font-size: rem(28)
+   }
+   @media(min-width: $pc) {
+      font-size: rem(32);
+   }
+}
+
+@mixin dp-600-40 {
+   font-family: var(--ff-sec);
+   font-weight: 600;
+   line-height: 140%;
+   letter-spacing: 0.02em;
+   font-size: rem(26);
+   @media(min-width: $mobileNormal) {
+      font-size: rem(32);
+   }
+   @media(min-width: $tablet) {
+      font-size: rem(36);
+   }
+   @media(min-width: $pc) {
+      font-size: rem(40);
+   }
+}
+
+@mixin bd-400-14 {
+   font-family: var(--ff-main);
+   font-size: rem(14);
+   line-height: 180%;
+   letter-spacing: 0.02em;
+   color: var(--clr-black);
+}
+
+@mixin bd-400-16 {
+   font-family: var(--ff-main);
+   font-weight: 400;
+   font-size: rem(14);
+   line-height: 1.4;
+   @media(min-width: $tablet) {
+      font-size: rem(16);
+      line-height: 1.6;
+   }
+}
+
+@mixin bd-400-18 {
+   font-family: var(--ff-main);
+   line-height: 1.6;
+   font-size: rem(14);
+   @media(min-width: $mobileNormal) {
+      font-size: rem(16);
+   }
+   @media(min-width: $pc) {
+      font-size: rem(18);
+      line-height: 180%;
+   }
+}
+
+@mixin bd-500-16 {
+   font-family: var(--ff-main);
+   font-weight: 500;
+   font-size: rem(14);
+   line-height: 1.6;
+   @media(min-width: $pc) {
+      font-size: rem(16);
+      line-height: 180%;
+   }
+}
+
+@mixin bd-500-18 {
+   font-family: var(--ff-main);
+   font-weight: 500;
+   font-size: rem(14);
+   line-height: 180%;
+   color: var(--clr-black);
+   @media(min-width: $mobileNormal) {
+      font-size: rem(16);
+   }
+   @media(min-width: $tablet) {
+      font-size: rem(18);
+   }
+}
+
+@mixin bd-600-18 {
+   font-family: var(--ff-main);
+   font-weight: 600;
+   font-size: rem(14);
+   line-height: 1.4;
+   @media(min-width: $mobileNormal) {
+      font-size: rem(16);
+   }
+   @media(min-width: $tablet) {
+      font-size: rem(18);
+      line-height: 180%;
+   }
+}
+
+@mixin t-400-16 {
+   font-family: var(--ff-sec);
+   font-weight: 400;
+   font-size: rem(16);
+   line-height: 180%;
+}
+
+@mixin background {
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+}
+
+@mixin dp-500-24 {
+   font-family: var(--ff-sec);
+   font-style: normal;
+   font-weight: 500;
+   line-height: 160%;
+   letter-spacing: 0.02em;
+   @media(min-width: $tablet) {
+      font-size: rem(24);
+   }
+}

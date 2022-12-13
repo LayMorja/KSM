@@ -1,0 +1,184 @@
+.contact-info {
+   background-color: var(--clr-superlight-blue);
+   background-repeat: no-repeat;
+   background-size: 295px 295px;
+   background-position: 100px 20px;
+   background-image: url('@img/contacts-form/circle.png');
+   padding: rem(65) 0 rem(95);
+   @media(min-width: $pc) {
+      padding: rem(60) 0 rem(80);
+   }
+   @media(min-width: $mobileSmall) {
+      background-position: right 20px;
+      background-size: 350px 350px;
+      background-position: 30% 80%;
+   }
+   @media(min-width: $pc) {
+      background-size: 412px 412px;
+      background-position: 40% 20px;
+   }
+   &--mb {
+      margin-bottom: rem(60);
+      @media(min-width: $tablet) {
+         margin-bottom: rem(120);
+      }
+   }
+}
+
+.contact-block {
+   > div {
+      text-align: center;
+      margin-bottom: rem(80);
+   }
+   > div h2,
+   > div h3 {
+      margin-bottom: rem(24);
+      font-size: rem(24);
+      color: var(--clr-blue);
+      @include dp-500-40;
+   }
+   > div a {
+      display: inline-block;
+      margin-bottom: rem(4);
+      color: var(--clr-almost-dark);
+      font-size: rem(22);
+      transition: all 0.32s ease-in-out;
+      @media(any-hover: hover) {
+         &:hover {
+            color: var(--clr-blue);
+         }
+      }
+      @include dp-500-30;
+   }
+   > div span {
+      display: block;
+      color: var(--clr-dark-gray);
+      margin-bottom: rem(16);
+      @include t-400-16;
+   }
+   @media(min-width: $mobile) {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      > div {
+         text-align: left;
+         margin-right: rem(20);
+         max-width: rem(560);
+         margin-bottom: 0;
+      }
+   }
+   @media(min-width: $tablet) {
+      > div h2,
+      > div h3 {
+         font-size: rem(32);
+      }
+      > div a {
+         font-size: rem(24);
+      }
+   }
+   @media(min-width: $pc) {
+      > div h2,
+      > div h3 {
+         margin-bottom: rem(30);
+         font-size: rem(40);
+      }
+      > div span {
+         margin-bottom: rem(20);
+      }
+      > div a {
+         font-size: rem(30);
+      }
+   }
+}
+.contact-block form {
+   p {
+      font-size: rem(16);
+      margin-bottom: rem(40);
+      @include bd-500-18;
+   }
+   div {
+      position: relative;         
+      .close-button {
+         position: absolute;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         width: rem(24);
+         height: rem(24);
+         border-radius: 50%;
+         top: rem(8);
+         right: rem(10);
+         background-color: var(--clr-white);
+         opacity: 0;
+         pointer-events: none;
+         transition: all 0.32s ease-in-out;
+         svg {
+            display: block;
+            width: rem(12);
+            height: rem(12);
+         }
+         &.shown {
+            opacity: 1;
+            pointer-events: all;
+         }
+      }
+   }
+   input {
+      width: 100%;
+      height: rem(40);
+      padding: 0 rem(10);
+      background-color: transparent;
+      border: 1px solid transparent;
+      border-bottom: 1px solid var(--clr-dark-gray);
+      font-family: var(--ff-main);
+      font-size: rem(16);
+      line-height: 1.875;
+      letter-spacing: 0.02em;
+      color: var(--clr-black);
+      &::placeholder {
+         color: var(--clr-dark-gray);
+      }
+      transition: all 0.32s ease-in-out;
+      @media(any-hover: hover) {
+         &:hover {
+            box-shadow: 3px 3px 6px rgba(10, 69, 157, 0.1);
+         }
+      }
+      &:focus {
+         outline: none;
+         box-shadow: 3px 3px 6px rgba(10, 69, 157, 0.1);
+         border-color: var(--clr-blue);
+      }
+      &.filled {
+         background-color: var(--clr-superlight-blue);
+         border-bottom: 1px solid transparent;
+      }
+   }
+   input.just-validate-error-field {
+      background-color: var(--clr-superlight-blue);
+      border-color: transparent;
+   }
+   div:not(:last-child) {
+      margin-bottom: rem(32);
+   }
+   .cta {
+      width: 100%;
+      margin-top: rem(40);
+   }
+   @media(min-width: $tablet) {
+      p {
+         font-size: rem(18);
+      }
+   }
+   @media(min-width: $pc) {
+      max-width: rem(460);
+      flex: 1 1 auto;
+   }
+   .just-validate-error-label {
+      margin-top: rem(5);
+      font-size: rem(12);
+      line-height: 140%;
+      letter-spacing: 0.02em;
+      color: #D60A0A;         
+   }
+}

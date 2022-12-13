@@ -1,0 +1,36 @@
+.breadcrumbs {
+   margin: rem(20) 0 rem(40);
+   ul {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+   }
+   ul li {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+   }
+   ul li:not(:last-child) {
+      &::after {
+         content: "/";
+         margin: 0 rem(4);
+         color: var(--clr-dark-gray);
+      }
+   }
+   ul li a {
+      @include way-title-400-12;
+      color: var(--clr-dark-gray);
+      @media(any-hover: hover) {
+         &:hover {
+            color: var(--clr-black);
+         }
+      }
+      &:focus {
+         outline: none;
+         color: var(--clr-black);
+      }
+   }
+   ul li:last-child a {
+      color: var(--clr-black);
+   }
+}

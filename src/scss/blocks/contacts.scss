@@ -1,0 +1,81 @@
+.contacts {
+   background-repeat: no-repeat;
+   background-position: right center;
+   background-size: cover;
+   padding: rem(40) 0;
+   background-color: var(--clr-superlight-blue);
+   margin-bottom: rem(40);
+   @media(min-width: $tablet) {
+      padding: rem(50) 0 rem(70);
+   }
+   @media(min-width: $pc) {
+      padding: rem(60) 0 rem(110);
+      margin-bottom: rem(120);
+   }
+   .contacts__container {
+      h2 {
+         @include dp-600-32;
+         text-align: center;
+         color: var(--clr-blue-gray);
+         margin-bottom: rem(32);
+         @media(min-width: $tablet) {
+            margin-bottom: rem(48);
+         }
+         @media(min-width: $pc) {
+            margin-bottom: rem(60);
+         }
+      }
+      > div {
+         position: relative;
+         margin-top: rem(80);
+      }
+      ul {
+         margin-bottom: rem(40);
+         @media(min-width: $tablet) {
+            position: absolute;
+            max-width: rem(460);
+            left: 40px;
+            bottom: 40px;
+            z-index: 99999;
+            padding: rem(30) rem(20);
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            margin-bottom: 0;
+         }
+      }
+      ul li {
+         @include bd-500-18;
+         font-weight: 500;
+         font-size: rem(16);
+         color: var(--clr-almost-dark);
+         @media(min-width: $tablet) {
+            font-size: rem(18);
+            line-height: 180%;
+         }
+      }
+      ul li:not(:last-child) {
+         margin-bottom: rem(10);
+      }
+      #map {
+         width: 100%;
+         height: rem(200);
+         @media(min-width: $mobileSmall) {
+            height: rem(250);
+         }
+         @media(min-width: $mobileNormal) {
+            height: rem(350);
+         }
+         @media(min-width: $tablet) {
+            height: rem(450);
+         }
+         @media(min-width: $pc) {
+            height: rem(600);
+         }
+         .ymaps-2-1-79-map-copyrights-promo,
+         .ymaps-2-1-79-copyright.ymaps-2-1-79-copyright_logo_no,
+         .ymaps-2-1-79-controls__control {
+            display: none;
+         }
+      }
+   }
+}

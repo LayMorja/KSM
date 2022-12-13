@@ -1,0 +1,81 @@
+.result {
+   padding: rem(60) 0;
+   margin-bottom: rem(40);
+   @include background;
+   @media(min-width: $mobile) {
+      padding-bottom: rem(80);
+   }
+   @media(min-width: $tablet) {
+      margin-bottom: rem(80);
+   }
+   @media(min-width: $pc) {
+      margin-bottom: rem(120);
+   }
+   &--double .result__container div ul {
+      align-self: flex-start;
+      @media(min-width: $mobileNormal) {
+         align-self: center;
+      }
+      @media(min-width: $mobile) {
+         align-self: flex-start;
+      }
+   }
+   &--nomr {
+      margin-bottom: 0;
+   }
+   .result__container {
+      h2 {
+         @include dp-600-32;
+         text-align: center;
+         color: var(--clr-white);
+         margin-bottom: rem(30);
+         @media(min-width: $tablet) {
+            margin-bottom: rem(60);
+         }
+      }
+      div {
+         display: flex;
+         flex-direction: column-reverse;
+         align-items: center;
+         @media(min-width: $mobile) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+         }
+      }
+      div ul {
+         padding-top: rem(30);
+         @media(min-width: $mobile) {
+            margin-right: rem(20);
+            padding-bottom: rem(30);
+         }
+      }
+      div ul li {
+         @include bd-600-18;
+         display: flex;
+         align-items: center;
+         color: var(--clr-white);
+         margin-bottom: rem(20);
+         &::before {
+            content: "";
+            flex: 0 0 rem(18);
+            height: rem(15);
+            margin-right: rem(17);
+            margin-left: rem(5);
+            @include background;
+            background-image: url('@img/result/icon.svg');
+            background-size: contain;
+         }
+      }
+      div img {
+         max-width: rem(460);
+         max-height: rem(294);
+         width: 100%;
+         object-fit: cover;
+         @media(min-width: $mobile) {
+            align-self: flex-end;
+            margin-left: rem(20);
+         }
+      }
+   }
+}

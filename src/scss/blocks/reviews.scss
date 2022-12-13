@@ -1,0 +1,121 @@
+.reviews {
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   padding: rem(40) 0 rem(36);
+   @media(min-width: $pc) {
+      padding: rem(60) 0 rem(110);
+   }
+   &--mb {
+      margin-bottom: rem(60);
+      @media(min-width: $tablet) {
+         margin-bottom: rem(120);
+      }
+   }
+   .reviews__container {
+      max-width: rem(1040);
+      h2 {
+         @include dp-600-32;
+         text-align: center;
+         color: var(--clr-white);
+         margin-bottom: rem(32);
+      }
+
+      .reviews__slide {
+         padding: rem(24) rem(16);
+         background-color: var(--clr-white);
+         @media(min-width: $mobileNormal) {
+            padding: rem(24);
+         }
+         @media(min-width: $pc) {
+            padding: rem(40);
+         }
+         img {
+            display: block;
+            width: rem(40);
+            height: rem(40);
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto;
+            margin-bottom: rem(16);
+            @media(min-width: $mobileSmall) {
+               width: rem(60);
+               height: rem(60);
+            }
+            @media(min-width: $tablet) {
+               width: rem(80);
+               height: rem(80);
+               margin-bottom: rem(20);
+            }
+         }
+
+         h3 {
+            @include dp-500-30;
+            font-size: rem(16);
+            text-align: center;
+            color: var(--clr-blue);
+            margin-bottom: rem(24);
+            @media(min-width: $mobileSmall) {
+               font-size: rem(18);
+            }
+            @media(min-width: $mobileNormal) {
+               font-size: rem(24);
+            }
+            @media(min-width: $tablet) {
+               font-size: rem(28);
+            }
+            @media(min-width: $pc) {
+               font-size: rem(30);
+               margin-bottom: rem(30);
+            }
+         }
+
+         p {
+            @include bd-500-18;
+            font-weight: 400;
+            font-size: rem(15);
+            margin-bottom: rem(24);
+            @media(min-width: $mobileNormal) {
+               font-size: rem(16);
+            }
+            @media(min-width: $tablet) {
+               font-size: rem(18);
+            }
+            @media(min-width: $pc) {
+               margin-bottom: rem(30);
+            }
+         }
+
+         span {
+            @include bd-500-16;
+            font-weight: 400;
+            font-size: rem(12);
+            line-height: 180%;
+            @media(min-width: $mobileNormal) {
+               font-size: rem(13);
+            }
+            @media(min-width: $tablet) {
+               font-size: rem(14);
+            }
+            @media(min-width: $pc) {
+               margin-bottom: rem(16);
+            }
+         }
+
+         span:first-of-type {
+            @media(min-width: $mobileNormal) {
+               font-weight: 500;
+            }
+         }
+
+         span:last-of-type {
+            display: block;
+            color: var(--clr-dark-gray)
+         }
+      }  
+
+      .reviews__slider {
+         margin-bottom: rem(30);
+      }
+   }
+}

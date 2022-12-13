@@ -1,0 +1,46 @@
+.pagination {
+   &:not(:first-child) {
+      margin-top: rem(30);
+   }
+   display: flex;
+   justify-content: flex-end;
+   ul {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+   }
+   ul li {
+      &:not(:last-child) {
+         margin-right: rem(10);
+      }
+   }
+   ul li a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 rem(40);
+      width: rem(40);
+      height: rem(40);
+      font-family: var(--ff-main);
+      font-weight: 400;
+      font-size: rem(16);
+      line-height: 1.6;
+      transition: all 0.32s ease-in-out;
+   }
+   @media(any-hover: hover) {
+      ul li a:hover {
+         background-color: var(--clr-light-blue);
+         color: var(--clr-white);
+      }
+   }
+   ul li a:focus {
+      outline: none;
+      background-color: var(--clr-light-blue);
+      color: var(--clr-white);
+   }
+   ul li a.active,
+   ul li.active a {
+      color: var(--clr-white);
+      background-color: var(--clr-blue);
+   }
+}

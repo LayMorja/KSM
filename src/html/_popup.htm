@@ -1,0 +1,60 @@
+<div id="response" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">
+            <svg>
+               <use xlink:href="#popup-close">
+            </svg>
+         </button>
+			<h4>Отклик на вакансию</h4>
+         <h5>Проектировщик систем АСУДД и СВП</h5>
+         <form action="#" class="response-form">
+            <div class="response-form__body">
+               <div class="response-form__item">
+                  <input autocomplete="off" type="text" name="ФИО" placeholder="ФИО" required>
+                  <button class="close-button">
+                     <svg>
+                        <use xlink:href="#close-button">
+                     </svg>
+                  </button>
+               </div>
+               <div class="response-form__item">
+                  <input autocomplete="off" type="text" name="Город" placeholder="Город" required>
+                  <button class="close-button">
+                     <svg>
+                        <use xlink:href="#close-button">
+                     </svg>
+                  </button>
+               </div>
+               <div class="response-form__item">
+                  <input autocomplete="off" type="tel" name="Телефон" placeholder="Телефон" required>
+                  <button class="close-button">
+                     <svg>
+                        <use xlink:href="#close-button">
+                     </svg>
+                  </button>
+               </div>
+               <div class="response-form__item">
+                  <input autocomplete="off" type="email" name="Почта" placeholder="Почта" required>
+                  <button class="close-button">
+                     <svg>
+                        <use xlink:href="#close-button">
+                     </svg>
+                  </button>
+               </div>
+               <div class="response-form__item">
+                  <textarea name="Комментарий" placeholder="Комментарий"></textarea>
+               </div>
+            </div>
+            <div class="response-form__activities">
+               <label for="summary">
+                  <img src="@img/icons/summary.svg" alt="" aria-hidden="true">
+                  <span>Прикрепить резюме</span>
+               </label>
+               <input type="file" name="Резюме" id="summary">
+               <button type="submit" class="cta">Отправить</button>
+            </div>
+         </form>
+		</div>
+	</div>
+</div>

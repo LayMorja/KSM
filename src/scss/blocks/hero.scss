@@ -1,0 +1,90 @@
+.hero {
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   .hero__container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding-bottom: rem(24);
+      padding-top: rem(85);
+      @media(min-width: $mobileNormal) {
+         align-items: flex-start;
+      }
+      box-sizing: border-box;
+      max-width: rem(1192);
+   }
+
+   .hero__container h1 {
+      font-family: var(--ff-sec);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--clr-white);
+      text-align: center;
+      margin-bottom: calc(50vh - 41px - 50px);
+      @media(min-width: $mobileNormal) {
+         text-align: left;
+         margin-bottom: 0;
+      }
+   }
+
+   .hero__container h1 span:first-of-type {
+      font-weight: 500;
+      font-size: rem(24);
+      line-height: 160%;
+      @media(min-width: $mobileSmall) {
+         font-size: rem(28);
+      }
+      @media(min-width: $mobile) {
+         font-size: rem(32);
+      }
+      @media(min-width: $tablet) {
+         font-size: rem(36);
+      }
+      @media(min-width: $notebook) {
+         font-weight: 400;
+         font-size: rem(40);
+         line-height: 140%;
+      }
+   }
+
+   .hero__container h1 span:last-of-type {
+      font-weight: 600;
+      font-size: rem(32);
+      line-height: 140%;
+      @media(min-width: $mobileSmall) {
+         font-size: rem(36);
+      }
+      @media(min-width: $mobile) {
+         font-size: rem(48);
+      }
+      @media(min-width: $tablet) {
+         font-size: rem(52);
+      }
+      @media(min-width: $notebook) {
+         font-size: rem(52);
+      }
+   }
+
+   .hero__container p {
+      display: none;
+      @media(min-width: $mobileNormal) {
+         max-width: rem(460);
+         display: block;
+         font-weight: 500;
+         line-height: 160%;
+         letter-spacing: 0.02em;
+         color: var(--clr-light-gray);
+         margin-bottom: calc(50vh - 41px - 50px);
+      }
+   }
+
+   .hero__container button {
+      width: 100%;
+      @media(min-width: $mobileNormal) {
+         display: none;
+      }
+   }
+}

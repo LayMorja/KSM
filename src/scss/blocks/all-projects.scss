@@ -1,0 +1,88 @@
+.all-projects {
+   margin-bottom: rem(40);
+   @media(min-width: $tablet) {
+      margin-bottom: rem(80);
+   }
+   @media(min-width: $pc) {
+      margin-bottom: rem(120);
+   }
+   .all-projects__container {
+      h1 {
+         @include dp-600-32;
+         color: var(--clr-blue);
+         max-width: rem(560);
+         text-align: center;
+         margin: 0 auto;
+         margin-bottom: rem(30);
+      }
+
+      nav {
+         display: flex;
+         margin-bottom: rem(30);
+         overflow: auto;
+         white-space: nowrap;
+         padding: 0 rem(15) rem(5);
+         button {
+            font-size: rem(14);
+            br {display: none;}
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: rem(12) rem(25);
+            background: var(--clr-white);
+            border-bottom: 2px solid var(--clr-blue);
+            transition: all 0.32s ease-in-out;
+            @media(any-hover: hover) {
+               &:hover {
+                  background-color: var(--clr-light-blue);
+                  color: var(--clr-white);
+               }
+            }
+            &:focus {
+               background-color: var(--clr-light-blue);
+               color: var(--clr-white);
+            }
+            &._tab-active {
+               background-color: var(--clr-blue);
+               color: var(--clr-white);
+            }
+         }
+         @media(min-width: $mobileSmall) {
+            button {
+               font-size: rem(16);
+               padding: rem(15) rem(30);
+            }
+         }
+         @media(min-width: $mobileNormal) {
+            justify-content: center;
+            margin-bottom: rem(60);
+            button {
+               font-size: rem(18);
+               padding: rem(17) rem(34);
+               br {
+                  display: inline;
+               }
+            }
+         }
+      }
+
+      > button {
+         margin: 0 auto;
+         margin-top: rem(40);
+      }
+   }
+   .all-projects__body {
+      &[hidden] {
+         display: none;
+      }
+      display: grid;
+      gap: rem(40);
+      @media(min-width: $mobileNormal) {
+         grid-template-columns: repeat(2, minmax(rem(290), 1fr));
+      }
+      @media(min-width: $tablet) {
+         grid-template-columns: repeat(3, minmax(rem(290), 1fr));
+      }
+   }
+}
